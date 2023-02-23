@@ -1,0 +1,33 @@
+---
+- name: ansible_playbook
+  hosts: all
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: latest
+
+    - name: copy file to all target
+      copy:
+        src: /root/first.yml
+        dest: /home/ubuntu/
+
+    - name: changing permisiion
+      file:
+        path: /home/ubuntu/first.yml
+        mode: 0777
+        owner: root
+        group: root
+    - name: multiple package instalation 
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - git
+        - wget
+    - name: shell commands
+      shell: free
+      register: val
+    - debug:
+        var:  val.stdout_lines
+     

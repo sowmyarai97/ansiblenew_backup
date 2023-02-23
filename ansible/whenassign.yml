@@ -1,0 +1,16 @@
+---
+- name: Install packages based on the OS
+  hosts: group2
+  become: true
+  tasks:
+    - name: Install git on Ubuntu-based systems
+      when: ansible_distribution == 'Ubuntu'
+      apt:
+        name: git
+        state: present
+
+    - name: Install maven on Red Hat-based systems
+      when: ansible_distribution == 'RedHat'
+      yum:
+        name: maven
+        state: present

@@ -1,0 +1,6 @@
+---
+- name: restart apache service
+  hosts: 172.31.33.96
+  roles:
+    - restart_apache
+    - maven_install

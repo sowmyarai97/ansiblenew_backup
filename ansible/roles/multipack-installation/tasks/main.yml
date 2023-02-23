@@ -1,0 +1,31 @@
+---
+# tasks file for multipack-installation
+- name: update  packages
+  apt:
+    name: "*"
+    state: latest
+- name: upgrade packages
+  apt:
+    upgrade: dist
+- name: installing apache2
+  apt:
+    name: apache2
+    state: latest
+  notify: start apache2 service
+
+- name: installing PHP
+  apt:
+    name: php-cli
+    state: latest
+  notify: start PHP service
+
+- name: installing mysql
+  apt:
+    name: mysql-server
+    state: latest
+  notify: start mysql service
+- name: installing wordpress
+  apt:
+    name: wordpress
+    state: latest
+  notify: start wordpress service

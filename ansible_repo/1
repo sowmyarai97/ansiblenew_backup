@@ -1,0 +1,15 @@
+---
+- name: ansible-playbook
+  host: all
+  tasks:
+   - name: multipackage-package-installation
+     apt: 
+      name: "{{ item }}"
+      state: latest
+     with_items:
+      -git
+      -tree
+      -curl
+     copy:
+        src: /root/playbook1.yml
+        dest: /home/ubuntu/

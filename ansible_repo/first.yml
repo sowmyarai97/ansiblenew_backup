@@ -1,0 +1,20 @@
+---
+- name: ansible_playbook
+  hosts: all
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: latest
+
+    - name: copy file to all target
+      copy:
+        src: /root/first.yml
+        dest: /home/ubuntu/
+
+    - name: changing permisiion
+      file:
+        path: /home/ubuntu/first.yml
+        mode: 0777
+        owner: root
+        group: root

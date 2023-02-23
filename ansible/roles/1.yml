@@ -1,0 +1,7 @@
+---
+- name: roles
+  hosts: all
+  roles:
+    - firstsample
+
+

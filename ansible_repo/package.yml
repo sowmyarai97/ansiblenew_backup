@@ -1,0 +1,12 @@
+---
+- name: ansible-playbook
+  hosts: all
+  tasks:
+   - name: multipackage-package-installation
+     apt: 
+      name: "{{ item }}"
+      state: latest
+     with_items:
+      - git
+      - tree
+      - curl

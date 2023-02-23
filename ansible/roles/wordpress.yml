@@ -1,0 +1,9 @@
+---
+- name: installing-wordpress
+  hosts: all
+  tasks:
+    - name: installing wordpress
+      apt:
+        name: wordpress
+        state: latest
+

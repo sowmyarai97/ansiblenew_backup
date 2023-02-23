@@ -1,0 +1,5 @@
+---
+- name: installing multiple packges
+  hosts: all
+  roles:
+    - multipack-installation
